@@ -27,9 +27,9 @@ namespace DotnetEstudo.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveProduto(Produtos produtos)
+        public void SaveProduto(Produtos produtos)
         {
-            return _service.SaveProduto(produtos);
+            _service.SaveProduto(produtos);
         }
 
         [HttpPut("{id}")]
