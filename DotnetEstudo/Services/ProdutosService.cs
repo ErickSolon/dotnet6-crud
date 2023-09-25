@@ -16,18 +16,18 @@ namespace DotnetEstudo.Services
             _logger = logger;
         }
 
-        public IActionResult DeletebyId(int Id)
+        public IActionResult DeletebyId(int id)
         {
             try
             {
-                var Produto = _context.Produtos.SingleOrDefault(x => x.Id == Id);
+                var Produto = _context.Produtos.SingleOrDefault(x => x.Id == id);
 
                 if (Produto == null)
                 {
                     return NotFound("Produto não existe, nada foi excluído!");
                 }
 
-                _logger.LogInformation($"Dado deletado! {Id}");
+                _logger.LogInformation($"Dado deletado! {id}");
                 _context.Produtos.Remove(Produto);
                 _context.SaveChanges();
             } catch(Exception e)
@@ -81,11 +81,11 @@ namespace DotnetEstudo.Services
         }
 
 
-        public IActionResult GetById(int Id)
+        public IActionResult GetById(int id)
         {
             try
             {
-                var Resultado = _context.Produtos.SingleOrDefault(x => x.Id == Id);
+                var Resultado = _context.Produtos.SingleOrDefault(x => x.Id == id);
 
                 if (Resultado == null)
                 {
@@ -98,7 +98,7 @@ namespace DotnetEstudo.Services
                     Titulo = Resultado.Titulo
                 };
 
-                _logger.LogInformation($"Id do dado requisitado: {Id}");
+                _logger.LogInformation($"Id do dado requisitado: {id}");
                 return Ok(produtosDTOs);
             } catch(Exception e)
             {
@@ -131,11 +131,11 @@ namespace DotnetEstudo.Services
             
         }
 
-        public IActionResult UpdateById(int Id, Produtos produtos)
+        public IActionResult UpdateById(int id, Produtos produtos)
         {
             try
             {
-                var Produto = _context.Produtos.SingleOrDefault(x => x.Id == Id);
+                var Produto = _context.Produtos.SingleOrDefault(x => x.Id == id);
 
                 if (produtos.Id == 0)
                 {
@@ -152,7 +152,7 @@ namespace DotnetEstudo.Services
 
                 _context.SaveChanges();
 
-                _logger.LogInformation($"Dado atualizado! {Id}");
+                _logger.LogInformation($"Dado atualizado! {id}");
                 return Ok(Produto);
             } catch(Exception e)
             {
