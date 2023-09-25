@@ -1024,11 +1024,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erick\\source\\repos\\DotnetEstudo\\DotnetEstudo\\DotnetEstudo.csproj",
+      "projectUniqueName": "C:\\Users\\erick\\Workspace\\CSharp\\dotnet7-crud\\DotnetEstudo\\DotnetEstudo.csproj",
       "projectName": "DotnetEstudo",
-      "projectPath": "C:\\Users\\erick\\source\\repos\\DotnetEstudo\\DotnetEstudo\\DotnetEstudo.csproj",
+      "projectPath": "C:\\Users\\erick\\Workspace\\CSharp\\dotnet7-crud\\DotnetEstudo\\DotnetEstudo.csproj",
       "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erick\\source\\repos\\DotnetEstudo\\DotnetEstudo\\obj\\",
+      "outputPath": "C:\\Users\\erick\\Workspace\\CSharp\\dotnet7-crud\\DotnetEstudo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
