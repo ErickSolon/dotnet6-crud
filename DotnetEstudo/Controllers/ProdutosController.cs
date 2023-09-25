@@ -14,7 +14,6 @@ namespace DotnetEstudo.Controllers
             _service = service;
         }
 
-
         [HttpGet]
         public IActionResult Produtos(int page, int size)
         {
