@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erick\\source\\repos\\EstudoRepositories\\EstudoRepositories\\EstudoRepositories.csproj": {}
+    "C:\\Users\\erick\\OneDrive\\Documentos\\dotnet7-crud\\EstudoRepositories\\EstudoRepositories.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erick\\source\\repos\\EstudoRepositories\\EstudoRepositories\\EstudoRepositories.csproj": {
+    "C:\\Users\\erick\\OneDrive\\Documentos\\dotnet7-crud\\EstudoRepositories\\EstudoRepositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erick\\source\\repos\\EstudoRepositories\\EstudoRepositories\\EstudoRepositories.csproj",
+        "projectUniqueName": "C:\\Users\\erick\\OneDrive\\Documentos\\dotnet7-crud\\EstudoRepositories\\EstudoRepositories.csproj",
         "projectName": "EstudoRepositories",
-        "projectPath": "C:\\Users\\erick\\source\\repos\\EstudoRepositories\\EstudoRepositories\\EstudoRepositories.csproj",
+        "projectPath": "C:\\Users\\erick\\OneDrive\\Documentos\\dotnet7-crud\\EstudoRepositories\\EstudoRepositories.csproj",
         "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erick\\source\\repos\\EstudoRepositories\\EstudoRepositories\\obj\\",
+        "outputPath": "C:\\Users\\erick\\OneDrive\\Documentos\\dotnet7-crud\\EstudoRepositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",

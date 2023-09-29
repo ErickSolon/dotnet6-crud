@@ -46,6 +46,8 @@ namespace EstudoRepositories.Services
                 {
                     Id =  item.Id,
                     VeiculoId = item.Veiculo.Id,
+                    NomeCompleto = item.NomeCompleto,
+                    CPF = item.CPF,
                     Placa = item.Veiculo.Placa,
                     Marca = item.Veiculo.Marca
                 });
@@ -65,6 +67,8 @@ namespace EstudoRepositories.Services
                 var Multado = new MultadosDTO
                 {
                     Id = Condutor.Id,
+                    NomeCompleto = Condutor.NomeCompleto,
+                    CPF = Condutor.CPF,
                     VeiculoId = Condutor.Veiculo.Id,
                     Placa = Condutor.Veiculo.Placa,
                     Marca = Condutor.Veiculo.Marca
@@ -80,6 +84,8 @@ namespace EstudoRepositories.Services
             var CondutorById = await _context.Condutor
                 .Include(c => c.Veiculo)
                 .SingleOrDefaultAsync(x => x.Id == id);
+            CondutorById.NomeCompleto = condutor.NomeCompleto;
+            CondutorById.CPF = condutor.CPF;
             CondutorById.Veiculo.Marca = condutor.Veiculo.Marca;
             CondutorById.Veiculo.Placa = condutor.Veiculo.Placa;
             await _context.SaveChangesAsync();
