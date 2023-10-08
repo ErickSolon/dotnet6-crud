@@ -1,4 +1,6 @@
 using EstudoRepositories.Data;
+using EstudoRepositories.Repositories;
+using EstudoRepositories.Repositories.Interfaces;
 using EstudoRepositories.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +16,7 @@ builder.Services.AddSwaggerGen();
 // Modificações para o projeto
 builder.Services.AddDbContext<ProjetoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<IMultaService, MultaService>();
+builder.Services.AddScoped<ICondutorRepository, CondutorRepository>();
 
 var app = builder.Build();
 

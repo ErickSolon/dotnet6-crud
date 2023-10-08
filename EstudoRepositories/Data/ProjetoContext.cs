@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EstudoRepositories.Data.Map;
 using EstudoRepositories.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,8 @@ public partial class ProjetoContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfiguration(new CondutorMap());
+        modelBuilder.ApplyConfiguration(new VeiculoMap());
         OnModelCreatingPartial(modelBuilder);
     }
 

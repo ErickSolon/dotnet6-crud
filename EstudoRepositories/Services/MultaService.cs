@@ -1,6 +1,8 @@
 ﻿using EstudoRepositories.Data;
 using EstudoRepositories.Models;
 using EstudoRepositories.Models.DTOs;
+using EstudoRepositories.Repositories;
+using EstudoRepositories.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Numerics;
 using System.Text.Json;
@@ -11,33 +13,27 @@ namespace EstudoRepositories.Services
 {
     public class MultaService : IMultaService
     {
-        private readonly ProjetoContext _context;
+        private readonly ICondutorRepository _repository;
 
-        public MultaService(ProjetoContext context)
+        public MultaService(ICondutorRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public async Task CreateCondutor(Condutor condutor)
         {
-            await _context.Condutor.AddAsync(condutor);
-            await _context.SaveChangesAsync();
+            await _repository.SaveCondutor(condutor);
         }
 
         public async Task DeleteCondutor(long id)
         {
-            var CondutorById = await _context.Condutor
-                .Include(c => c.Veiculo)
-                .SingleOrDefaultAsync(x => x.Id == id);
-            _context.Condutor.Remove(CondutorById);
-            await _context.SaveChangesAsync();
+            await _repository.DeleteCondutor(id);
         }
 
         public async Task<List<MultadosDTO>> ReadCondutores()
         {
-            var Condutores = await _context.Condutor
-                .Include(c => c.Veiculo)
-                .ToListAsync();
+
+            var Condutores = await _repository.GetCondutores();
 
             List<MultadosDTO> MultadosDTO = new();
             foreach (var item in Condutores)
@@ -58,11 +54,9 @@ namespace EstudoRepositories.Services
 
         public async Task<MultadosDTO> ReadCondutorById(long id)
         {
-            var Condutor = await _context.Condutor
-                .Include(c => c.Veiculo)
-                .SingleOrDefaultAsync(x => x.Id == id);
+            var Condutor = await _repository.GetCondutor(id);
 
-            if(Condutor != null)
+            if (Condutor != null)
             {
                 var Multado = new MultadosDTO
                 {
@@ -81,14 +75,6 @@ namespace EstudoRepositories.Services
 
         public async Task UpdateCondutor(long id, Condutor condutor)
         {
-            var CondutorById = await _context.Condutor
-                .Include(c => c.Veiculo)
-                .SingleOrDefaultAsync(x => x.Id == id);
-            CondutorById.NomeCompleto = condutor.NomeCompleto;
-            CondutorById.CPF = condutor.CPF;
-            CondutorById.Veiculo.Marca = condutor.Veiculo.Marca;
-            CondutorById.Veiculo.Placa = condutor.Veiculo.Placa;
-            await _context.SaveChangesAsync();
-        }
+            await _repository.UpdateCondutor(id, condutor);        }
     }
 }
