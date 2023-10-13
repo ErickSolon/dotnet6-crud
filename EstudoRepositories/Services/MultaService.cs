@@ -1,5 +1,6 @@
 ﻿using EstudoRepositories.Models;
 using EstudoRepositories.Models.DTOs;
+using EstudoRepositories.Models.Enums;
 using EstudoRepositories.Repositories.Interfaces;
 
 namespace EstudoRepositories.Services
@@ -31,7 +32,18 @@ namespace EstudoRepositories.Services
             List<MultadosDTO> MultadosDTO = new();
             foreach (var item in Condutores)
             {
-                MultadosDTO.Add(new MultadosDTO(item.Id, item.Veiculo.Id, item.NomeCompleto, item.CPF, item.Veiculo.Placa, item.Veiculo.Marca));
+                MultadosDTO.Add(
+                    new MultadosDTO(
+                        item.Id,
+                        item.Veiculo.Id,
+                        item.NomeCompleto,
+                        item.CPF,
+                        item.Veiculo.Placa,
+                        item.Veiculo.Marca,
+                        item.Veiculo.MultaStatus == null
+                            ? MultaStatus.NaoPago
+                            : item.Veiculo.MultaStatus)
+                );
             }
 
             return MultadosDTO;
@@ -43,7 +55,17 @@ namespace EstudoRepositories.Services
 
             if (Condutor != null)
             {
-                var Multado = new MultadosDTO(Condutor.Id, Condutor.Veiculo.Id, Condutor.NomeCompleto, Condutor.CPF, Condutor.Veiculo.Placa, Condutor.Veiculo.Marca);
+                var Multado = new MultadosDTO(
+                    Condutor.Id,
+                    Condutor.Veiculo.Id,
+                    Condutor.NomeCompleto,
+                    Condutor.CPF,
+                    Condutor.Veiculo.Placa,
+                    Condutor.Veiculo.Marca,
+                    Condutor.Veiculo.MultaStatus == null
+                        ? MultaStatus.NaoPago
+                        : Condutor.Veiculo.MultaStatus
+                );
                 return Multado;
             }
             return null;

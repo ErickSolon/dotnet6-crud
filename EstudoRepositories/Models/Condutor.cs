@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace EstudoRepositories.Models
+﻿namespace EstudoRepositories.Models
 {
     public class Condutor
     {

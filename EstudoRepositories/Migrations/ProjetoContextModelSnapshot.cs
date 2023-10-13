@@ -62,6 +62,9 @@ namespace EstudoRepositories.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<int>("MultaStatus")
+                        .HasColumnType("int");
+
                     b.Property<string>("Placa")
                         .IsRequired()
                         .HasMaxLength(255)

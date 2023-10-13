@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using EstudoRepositories.Data.Map;
+﻿using EstudoRepositories.Data.Map;
 using EstudoRepositories.Models;
 using Microsoft.EntityFrameworkCore;
 

@@ -21,10 +21,15 @@ namespace EstudoRepositories.Controllers
             try
             {
                 await _service.CreateCondutor(condutor);
-                return CreatedAtAction(nameof(_service.ReadCondutorById), new { id = condutor.Id }, condutor);
-            } catch (Exception e)
+                return CreatedAtAction(
+                    nameof(_service.ReadCondutorById),
+                    new { id = condutor.Id }, condutor
+                );
+            }
+            catch (Exception e)
             {
-                return Problem("Problemas ao salvar o condutor!");
+            {
+                return Problem($"Problemas ao salvar o condutor! {e.Message.ToString()}");
             }
         }
 
@@ -46,8 +51,8 @@ namespace EstudoRepositories.Controllers
         public async Task<IActionResult> GetById(long id)
         {
             var Resultado = await _service.ReadCondutorById(id);
-            
-            if(Resultado == null)
+
+            if (Resultado == null)
             {
                 return NotFound("Condutor não encontrado ou não multado!");
             }
@@ -60,10 +65,11 @@ namespace EstudoRepositories.Controllers
         {
             var Resultado = await _service.ReadCondutorById(id);
 
-            if(Resultado == null)
+            if (Resultado == null)
             {
                 return NotFound("Condutor não encontrado, por tanto nada atualizado!");
-            } else
+            }
+            else
             {
                 await _service.UpdateCondutor(id, condutor);
                 return Ok("Dados do condutor atualizados com sucesso!");
@@ -78,11 +84,12 @@ namespace EstudoRepositories.Controllers
             if (Resultado == null)
             {
                 return NotFound("Condutor não encontrado, por tanto nada deletado!");
-            } else
+            }
+            else
             {
                 await _service.DeleteCondutor(id);
                 return Ok($"{id} deletado com sucesso!");
-            }            
+            }
         }
     }
 }

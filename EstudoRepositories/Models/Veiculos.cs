@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EstudoRepositories.Models.Enums;
 
 namespace EstudoRepositories.Models
 {
@@ -7,5 +7,6 @@ namespace EstudoRepositories.Models
         public long Id { get; set; }
         public string Placa { get; set; }
         public string Marca { get; set; }
+        public MultaStatus MultaStatus { get; set; } 
     }
 }

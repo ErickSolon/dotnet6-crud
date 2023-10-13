@@ -14,7 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Modificações para o projeto
-builder.Services.AddDbContext<ProjetoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDbContext<ProjetoContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
+);
 builder.Services.AddScoped<IMultaService, MultaService>();
 builder.Services.AddScoped<ICondutorRepository, CondutorRepository>();
 

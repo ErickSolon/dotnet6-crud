@@ -54,6 +54,7 @@ namespace EstudoRepositories.Repositories
             Condutor.NomeCompleto = condutor.NomeCompleto;
             Condutor.Veiculo.Marca = condutor.Veiculo.Marca;
             Condutor.Veiculo.Placa = condutor.Veiculo.Placa;
+            Condutor.Veiculo.MultaStatus = condutor.Veiculo.MultaStatus;
 
             await _context.SaveChangesAsync();
 
