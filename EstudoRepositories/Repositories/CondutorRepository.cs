@@ -3,62 +3,60 @@ using EstudoRepositories.Models;
 using EstudoRepositories.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace EstudoRepositories.Repositories
+namespace EstudoRepositories.Repositories;
+public class CondutorRepository : ICondutorRepository
 {
-    public class CondutorRepository : ICondutorRepository
+    private readonly ProjetoContext _context;
+
+    public CondutorRepository(ProjetoContext context)
     {
-        private readonly ProjetoContext _context;
+        _context = context;    
+    }
 
-        public CondutorRepository(ProjetoContext context)
+    public async Task<bool> DeleteCondutor(long id)
+    {
+        var Condutor = await GetCondutor(id);
+
+        if(Condutor == null)
         {
-            _context = context;    
+            return false;
         }
 
-        public async Task<bool> DeleteCondutor(long id)
-        {
-            var Condutor = await GetCondutor(id);
+        _context.Remove(Condutor);
+        await _context.SaveChangesAsync();
+        return true;
+    }
 
-            if(Condutor == null)
-            {
-                return false;
-            }
+    public async Task<Condutor> GetCondutor(long id)
+    {
+        return await _context.Condutor.Include(c => c.Veiculo).FirstOrDefaultAsync(x => x.Id == id);
+    }
 
-            _context.Remove(Condutor);
-            await _context.SaveChangesAsync();
-            return true;
-        }
+    public async Task<List<Condutor>> GetCondutores()
+    {
+        return await _context.Condutor.Include(c => c.Veiculo).ToListAsync();
+    }
 
-        public async Task<Condutor> GetCondutor(long id)
-        {
-            return await _context.Condutor.Include(c => c.Veiculo).FirstOrDefaultAsync(x => x.Id == id);
-        }
+    public async Task<Condutor> SaveCondutor(Condutor condutor)
+    {
+        await _context.Condutor.AddAsync(condutor);
+        await _context.SaveChangesAsync();
 
-        public async Task<List<Condutor>> GetCondutores()
-        {
-            return await _context.Condutor.Include(c => c.Veiculo).ToListAsync();
-        }
+        return condutor;
+    }
 
-        public async Task<Condutor> SaveCondutor(Condutor condutor)
-        {
-            await _context.Condutor.AddAsync(condutor);
-            await _context.SaveChangesAsync();
+    public async Task<Condutor> UpdateCondutor(long id, Condutor condutor)
+    {
+        Condutor Condutor = await GetCondutor(id);
 
-            return condutor;
-        }
+        Condutor.CPF = condutor.CPF;
+        Condutor.NomeCompleto = condutor.NomeCompleto;
+        Condutor.Veiculo.Marca = condutor.Veiculo.Marca;
+        Condutor.Veiculo.Placa = condutor.Veiculo.Placa;
+        Condutor.Veiculo.MultaStatus = condutor.Veiculo.MultaStatus;
 
-        public async Task<Condutor> UpdateCondutor(long id, Condutor condutor)
-        {
-            Condutor Condutor = await GetCondutor(id);
+        await _context.SaveChangesAsync();
 
-            Condutor.CPF = condutor.CPF;
-            Condutor.NomeCompleto = condutor.NomeCompleto;
-            Condutor.Veiculo.Marca = condutor.Veiculo.Marca;
-            Condutor.Veiculo.Placa = condutor.Veiculo.Placa;
-            Condutor.Veiculo.MultaStatus = condutor.Veiculo.MultaStatus;
-
-            await _context.SaveChangesAsync();
-
-            return Condutor;
-        }
+        return Condutor;
     }
 }

@@ -3,77 +3,75 @@ using EstudoRepositories.Models.DTOs;
 using EstudoRepositories.Models.Enums;
 using EstudoRepositories.Repositories.Interfaces;
 
-namespace EstudoRepositories.Services
+namespace EstudoRepositories.Services;
+public class MultaService : IMultaService
 {
-    public class MultaService : IMultaService
+    private readonly ICondutorRepository _repository;
+
+    public MultaService(ICondutorRepository repository)
     {
-        private readonly ICondutorRepository _repository;
+        _repository = repository;
+    }
 
-        public MultaService(ICondutorRepository repository)
+    public async Task CreateCondutor(Condutor condutor)
+    {
+        await _repository.SaveCondutor(condutor);
+    }
+
+    public async Task DeleteCondutor(long id)
+    {
+        await _repository.DeleteCondutor(id);
+    }
+
+    public async Task<List<MultadosDTO>> ReadCondutores()
+    {
+
+        var Condutores = await _repository.GetCondutores();
+
+        List<MultadosDTO> MultadosDTO = new();
+        foreach (var item in Condutores)
         {
-            _repository = repository;
-        }
-
-        public async Task CreateCondutor(Condutor condutor)
-        {
-            await _repository.SaveCondutor(condutor);
-        }
-
-        public async Task DeleteCondutor(long id)
-        {
-            await _repository.DeleteCondutor(id);
-        }
-
-        public async Task<List<MultadosDTO>> ReadCondutores()
-        {
-
-            var Condutores = await _repository.GetCondutores();
-
-            List<MultadosDTO> MultadosDTO = new();
-            foreach (var item in Condutores)
-            {
-                MultadosDTO.Add(
-                    new MultadosDTO(
-                        item.Id,
-                        item.Veiculo.Id,
-                        item.NomeCompleto,
-                        item.CPF,
-                        item.Veiculo.Placa,
-                        item.Veiculo.Marca,
-                        item.Veiculo.MultaStatus == null
-                            ? MultaStatus.NaoPago
-                            : item.Veiculo.MultaStatus)
-                );
-            }
-
-            return MultadosDTO;
-        }
-
-        public async Task<MultadosDTO> ReadCondutorById(long id)
-        {
-            var Condutor = await _repository.GetCondutor(id);
-
-            if (Condutor != null)
-            {
-                var Multado = new MultadosDTO(
-                    Condutor.Id,
-                    Condutor.Veiculo.Id,
-                    Condutor.NomeCompleto,
-                    Condutor.CPF,
-                    Condutor.Veiculo.Placa,
-                    Condutor.Veiculo.Marca,
-                    Condutor.Veiculo.MultaStatus == null
+            MultadosDTO.Add(
+                new MultadosDTO(
+                    item.Id,
+                    item.Veiculo.Id,
+                    item.NomeCompleto,
+                    item.CPF,
+                    item.Veiculo.Placa,
+                    item.Veiculo.Marca,
+                    item.Veiculo.MultaStatus == null
                         ? MultaStatus.NaoPago
-                        : Condutor.Veiculo.MultaStatus
-                );
-                return Multado;
-            }
-            return null;
+                        : item.Veiculo.MultaStatus)
+            );
         }
 
-        public async Task UpdateCondutor(long id, Condutor condutor)
+        return MultadosDTO;
+    }
+
+    public async Task<MultadosDTO> ReadCondutorById(long id)
+    {
+        var Condutor = await _repository.GetCondutor(id);
+
+        if (Condutor != null)
         {
-            await _repository.UpdateCondutor(id, condutor);
+            var Multado = new MultadosDTO(
+                Condutor.Id,
+                Condutor.Veiculo.Id,
+                Condutor.NomeCompleto,
+                Condutor.CPF,
+                Condutor.Veiculo.Placa,
+                Condutor.Veiculo.Marca,
+                Condutor.Veiculo.MultaStatus == null
+                    ? MultaStatus.NaoPago
+                    : Condutor.Veiculo.MultaStatus
+            );
+            return Multado;
         }
+        return null;
+    }
+
+    public async Task UpdateCondutor(long id, Condutor condutor)
+    {
+        await _repository.UpdateCondutor(id, condutor);
     }
 }

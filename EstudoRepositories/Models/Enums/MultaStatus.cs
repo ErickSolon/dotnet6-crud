@@ -1,8 +1,6 @@
-﻿namespace EstudoRepositories.Models.Enums
+﻿namespace EstudoRepositories.Models.Enums;
+public enum MultaStatus
 {
-    public enum MultaStatus
-    {
-        NaoPago,
-        Pago
-    }
+    NaoPago,
+    Pago
 }
