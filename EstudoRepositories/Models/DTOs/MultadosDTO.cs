@@ -1,12 +1,6 @@
-﻿namespace EstudoRepositories.Models.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EstudoRepositories.Models.DTOs
 {
-    public class MultadosDTO
-    {
-        public long Id { get; set; }
-        public long VeiculoId { get; set; }
-        public string NomeCompleto { get; set; }
-        public string CPF { get; set; }
-        public string Placa { get; set; }
-        public string Marca { get; set; }
-    }
+    public record MultadosDTO(long Id, long VeiculoId, string NomeCompleto, string CPF, string Placa, string Marca);
 }
