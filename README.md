@@ -1,5 +1,5 @@
 # Tecnologias utilizadas neste projeto de estudo:
- - DotNet 6
+ - DotNet 7
  - EntityFramework
  - SQL Server
 
