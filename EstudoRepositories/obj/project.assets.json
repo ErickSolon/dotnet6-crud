@@ -3318,11 +3318,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erick\\Source\\Repos\\dotnet6-crud\\EstudoRepositories\\EstudoRepositories.csproj",
+      "projectUniqueName": "C:\\Users\\erick\\Source\\Repos\\ErickSolon\\dotnet7-crud\\EstudoRepositories\\EstudoRepositories.csproj",
       "projectName": "EstudoRepositories",
-      "projectPath": "C:\\Users\\erick\\Source\\Repos\\dotnet6-crud\\EstudoRepositories\\EstudoRepositories.csproj",
+      "projectPath": "C:\\Users\\erick\\Source\\Repos\\ErickSolon\\dotnet7-crud\\EstudoRepositories\\EstudoRepositories.csproj",
       "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erick\\Source\\Repos\\dotnet6-crud\\EstudoRepositories\\obj\\",
+      "outputPath": "C:\\Users\\erick\\Source\\Repos\\ErickSolon\\dotnet7-crud\\EstudoRepositories\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3399,7 +3399,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

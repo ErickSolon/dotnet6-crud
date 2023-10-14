@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h4QIxAdksjP90VgUyL9xWZNRUrpO1Dnmsyr1Pycc6GAM8W5pyygqlTsFuRADBoLUH8C0OWbXdkehAn+cZl1b2A==",
+  "dgSpecHash": "sPZqRD+ewtjwisf55TnHOv/pQx7W4BHg7XG0QL2ZzJD5TK7ipPU8LWhwjNARyugi1OGVmvp8R1UgaoAU2PnK3A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\erick\\Source\\Repos\\dotnet6-crud\\EstudoRepositories\\EstudoRepositories.csproj",
+  "projectFilePath": "C:\\Users\\erick\\Source\\Repos\\ErickSolon\\dotnet7-crud\\EstudoRepositories\\EstudoRepositories.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erick\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\erick\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

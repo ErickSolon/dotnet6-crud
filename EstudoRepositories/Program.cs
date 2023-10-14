@@ -13,11 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Modificações para o projeto
+// DbContext
 builder.Services.AddDbContext<ProjetoContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 );
+
+// Services
 builder.Services.AddScoped<IMultaService, MultaService>();
+
+// Repositories
 builder.Services.AddScoped<ICondutorRepository, CondutorRepository>();
 
 var app = builder.Build();
