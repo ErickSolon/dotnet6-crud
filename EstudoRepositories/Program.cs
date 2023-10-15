@@ -24,7 +24,22 @@ builder.Services.AddScoped<IMultaService, MultaService>();
 // Repositories
 builder.Services.AddScoped<ICondutorRepository, CondutorRepository>();
 
+// CORS PT.1
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
+
+// CORS PT.2
+app.UseRouting();
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
