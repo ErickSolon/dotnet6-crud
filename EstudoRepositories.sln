@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstudoRepositories", "Estud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportData", "ExportData\ExportData.csproj", "{CA327869-5B66-42B4-B4FC-6BC6043C91D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstudoRepositoriesTest", "EstudoRepositoriesTest\EstudoRepositoriesTest.csproj", "{118AB3B3-B729-4F30-A44C-AF543CCD34E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{CA327869-5B66-42B4-B4FC-6BC6043C91D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA327869-5B66-42B4-B4FC-6BC6043C91D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA327869-5B66-42B4-B4FC-6BC6043C91D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09C5275-664C-48B7-8058-569C27F880ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F09C5275-664C-48B7-8058-569C27F880ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F09C5275-664C-48B7-8058-569C27F880ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09C5275-664C-48B7-8058-569C27F880ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{118AB3B3-B729-4F30-A44C-AF543CCD34E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118AB3B3-B729-4F30-A44C-AF543CCD34E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118AB3B3-B729-4F30-A44C-AF543CCD34E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118AB3B3-B729-4F30-A44C-AF543CCD34E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
